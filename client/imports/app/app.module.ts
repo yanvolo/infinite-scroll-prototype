@@ -1,14 +1,15 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
-import { DemoComponent } from "./demo/demo.component";
-import { DemoDataService } from "./demo/demo-data.service";
+
+import {POSTS_DECLARATIONS} from './post';
+import {PostDataService} from "./post/post-data.service";
 
 @NgModule({
   // Components, Pipes, Directive
   declarations: [
     AppComponent,
-    DemoComponent
+      ...POSTS_DECLARATIONS
   ],
   // Entry Components
   entryComponents: [
@@ -16,7 +17,7 @@ import { DemoDataService } from "./demo/demo-data.service";
   ],
   // Providers
   providers: [
-    DemoDataService
+    PostDataService
   ],
   // Modules
   imports: [
@@ -25,8 +26,4 @@ import { DemoDataService } from "./demo/demo-data.service";
   // Main Component
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-  constructor() {
-
-  }
-}
+export class AppModule {}
