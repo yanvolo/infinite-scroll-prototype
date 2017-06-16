@@ -4,9 +4,9 @@ The Master Branch includes the base boilerplate. A large table of 10,000 entries
 
 We will build new branches as we test new packages and techniques, and they will also be listed here as they develop:
 
-## Ngx-infinite-scrolll
+## [Ngx-infinite-scroll] (https://www.npmjs.com/package/ngx-infinite-scroll)
 
-There is also a version available for angular 2 called something along the lines of ng2-… infinite scroll, which I think might be of interest considering we use a bootstrap of the same prefix and it appears that scidap uses angular 2. 
+There is also a version available for angular 2 called something along the lines of [ng2-… infinite scroll](https://www.npmjs.com/package/angular2-infinite-scroll), which I think might be of interest considering we use a bootstrap of the same prefix and it appears that scidap uses angular 2. 
 
 This version was the easiest to configure, as it is simply a directive that can be easily applied to HTML directly and used to call a single method in the script to append more data. 
 
