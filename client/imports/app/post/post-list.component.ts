@@ -7,28 +7,36 @@ import {Post} from "../../../../both/models/post.model";
 import {Observable} from "rxjs/Observable";
 import { Subscription } from 'rxjs/Subscription';
 import {MeteorObservable} from "meteor-rxjs";
+import Collection = Mongo.Collection;
 
 @Component({
     selector: 'post-list',
     template
 })
 export class PostListComponent implements OnInit, OnDestroy {
-    posts: Observable<Post[]>;
+    posts: Post[];
     postsSub: Subscription;
+    currentLimit:number;
+    chunkSize = 100;
 
     ngOnInit() {
-        this.posts = Posts.find({}).zone();
+        this.currentLimit = 0;
+        this.posts = [];
+        this.addPosts();
         this.postsSub = MeteorObservable.subscribe('posts').subscribe();
+        console.log("Hello World!");
+        var variable = Observable.from
     }
-
-    removePost(post: Post): void {
-        Posts.remove(post._id);
+    addPosts(){
+        console.log("Scrolling!");
+        //Update Limits
+        this.currentLimit+=this.chunkSize;
+        var oldLimit = this.currentLimit-this.chunkSize;
+        //Get next group of posts and add onto visable posts
+        Posts.find({},{skip:oldLimit,limit:this.chunkSize})
+            .filter(postArray => (postArray.length == this.chunkSize))
+            .subscribe(fullChunk=> fullChunk.forEach(singlePost=>this.posts.push(singlePost)));
     }
-    /*
-    search(value: string): void {
-        this.posts = Posts.find(value ? { location: value } : {}).zone();
-    }
-    */
 
     ngOnDestroy() {
         this.postsSub.unsubscribe();

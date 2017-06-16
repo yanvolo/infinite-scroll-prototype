@@ -1,6 +1,62 @@
-<div class="well-lg">
-    <table class="table table-bordered text-center">
-        <thead class="text-capitalize text-danger">
+<style>
+    md-grid-tile{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .red {
+        background: #ff8a80; }
+    .results-table{
+        margin:auto;
+        width:90%;
+        text-align:center;
+        border:1px solid black;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    td{
+        border:1px solid black;
+    }
+    .table-header{
+        color:white;
+        background-color:black;
+    }
+    tr:nth-child(even){background-color: #f2f2f2}
+
+</style>
+<div style="align:center">
+<!-- Attempted to use Grid List ---------------
+    <md-grid-list cols="7" row-height="6:1" style="align:center" infiniteScroll
+                  [infiniteScrollDistance]="1"
+                  [infiniteScrollThrottle]="300"
+                  (scrolled)="addPosts()">
+        <!-- Header Row -- >
+        <md-grid-tile md-col-span= "2" class="red">ID</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Project</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Status</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Priority</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Subject</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Updated</md-grid-tile>
+        <md-grid-tile md-col-span= "1" class="red">Created</md-grid-tile>
+        <!-- Content -- >
+        <div *ngFor="let post of posts">
+            <md-grid-tile>{{post.id}}</md-grid-tile>
+            <md-grid-tile>{{post.project}}</md-grid-tile>
+            <md-grid-tile>{{post.status}}</md-grid-tile>
+            <md-grid-tile>{{post.priority}}</md-grid-tile>
+            <md-grid-tile>{{post.subject}}</md-grid-tile>
+            <md-grid-tile>{{post.updated}}</md-grid-tile>
+            <md-grid-tile>{{post.made}}</md-grid-tile>
+        </div>
+
+    </md-grid-list>-->
+
+
+    <table style="align:center" infiniteScroll
+           [infiniteScrollDistance]="2"
+           [infiniteScrollThrottle]="300"
+           (scrolled)="addPosts()"
+            class = "results-table">
+        <thead class="table-header">
             <td>ID</td>
             <td>Project</td>
             <td>Status</td>
@@ -9,8 +65,8 @@
             <td>Updated</td>
             <td>Created</td>
         </thead>
-        <tbody>
-            <tr *ngFor="let post of posts | async">
+        <tbody >
+            <tr *ngFor="let post of posts">
                 <td>{{post.id}}</td>
                 <td>{{post.project}}</td>
                 <td>{{post.status}}</td>

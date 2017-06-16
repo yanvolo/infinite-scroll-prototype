@@ -9,7 +9,7 @@ import {ProjectPriority} from "../../../both/models/projectpriority.model";
 
 export function loadSamplePosts() {
     //Check if collection is empty, if it is, load the sample data
-    if(Posts.find().cursor.count() === 0){
+    if(Posts.find().count() === 0){
         //Push some reasonable examples
         const coherentExamples: Post[] = [
             {
@@ -56,7 +56,7 @@ export function loadSamplePosts() {
         coherentExamples.forEach((post: Post) => Posts.insert(post))
 
         //Then make the rest of the examples completely random
-        for (var i = 0; i < 496; i++) {
+        for (var i = 0; i < 9999; i++) {
             Posts.insert({
                 id:Math.ceil(Math.random()*500),
                 project:Fake.sentence(2), //ie. project title

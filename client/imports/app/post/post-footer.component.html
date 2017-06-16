@@ -1,3 +1,18 @@
-<div class="well">
-    <p class="text-center"> [Footer Placeholder]</p>
-</div>
+<style>
+    .footer-card{
+        background-color:white;align-items: center;width:90%;margin:auto;
+    }
+    .footer-card-content{
+        align-items: center;margin:auto;width:20%;
+    }
+    .card-spinner{
+        width:2em;height:2em;
+    }
+</style>
+<md-card class="footer-card">
+    <!--Progress spineers are annoyting-->
+    <!-- @Todo Figure out how to use progress spinners -->
+    <md-card-title class="footer-card-content">
+        <span style="align:middle;margin-right:30px"><p style="float:left;height:3em;font-size:1.5em;">Loading...</p> <md-progress-spinner class="card-spinner" mode="indeterminate" align="middle"></md-progress-spinner></span>
+    </md-card-title>
+</md-card>
